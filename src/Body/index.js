@@ -9,9 +9,16 @@ const Body = (props) => {
     })
   }
 
+  const makeVehicleCards = (vehicles) => {
+    return vehicles.map(vehicle => {
+      return <Card vehicle={vehicle} key={vehicle.name} />
+    })
+  }
+
   return (
       <div className="body">
-        {props.people ? makePeopleCards(props.people) : ''}
+        {props.people ? makePeopleCards(props.people) :
+          props.vehicles ? makeVehicleCards(props.vehicles) : ''}
       </div>
     )
 }

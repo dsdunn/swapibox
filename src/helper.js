@@ -44,6 +44,50 @@ export default class DataCleaner {
     return speciesName;
   }
 
+  getVehicles = async () => {
+    const url = 'https://swapi.co/api/vehicles/';
+    const response = await fetch(url);
+    const vehicleObj = await response.json();
+    const vehicles = await vehicleObj.results;
+    const vehicleList = vehicles.map( async (vehicle) => {
+      const {name, model, vehicle_class, passengers} = await vehicle;
+      return ({
+        name,
+        model,
+        vehicle_class,
+        passengers
+      })
+    })
+    return Promise.all(vehicleList);
+  }
+
+  getPlanets = async () => {
+    const url = 'https://swapi.co/api/planets';
+    const response = await fetch(url);
+    const planetObj = await response.json();
+    const planets = await vehicleObj.results;
+    const planetList = planets.map( async (planet) => {
+      const {name, terrain, population, climate} = await planet;
+      const residents = await this.getResidents(planet);
+      return ({
+        name,
+        terrain,
+        population,
+        climate,
+        residents
+      })
+    })
+  }
+
+  getResidents = async (planet) => {
+    residentNames = planet.residents.map(residentLink => {
+      const response = await fetch(residentLink);
+      const residentsObj = await response.json();
+      const residentName = await residentObj.name;
+      return residentName;
+    })
+    return Promise.all(residentNames);
+  } 
 
 }
 

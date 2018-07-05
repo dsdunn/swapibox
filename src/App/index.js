@@ -18,7 +18,6 @@ class App extends Component {
      this.setState({
       crawl: await this.dataCleaner.grabScroll()
      })
-     console.log(this.state.crawl)
   }
 
   getPeople = async () => {
@@ -26,13 +25,32 @@ class App extends Component {
       people: await this.dataCleaner.getPeople()
     })
   }
+
+  getVehicles = async () => {
+    this.setState({
+      vehicles: await this.dataCleaner.getVehicles()
+    })
+  }
+
+  getPlanets = async () => {
+    this.setState({
+      planets: await this.dataCleaner.getPlanets()
+    })
+  }
   
   render() {
     return (
       <div className="App">
-        <Header getPeople={this.getPeople}/>
+        <Header 
+          getPeople={this.getPeople} 
+          getVehicles={this.getVehicles} 
+          getPlanets={this.getPlanets}
+        />
         <Sidebar crawl={this.state.crawl}/>
-        <Body people={this.state.people} />
+        <Body 
+          vehicles={this.state.vehicles} 
+          people={this.state.people} 
+        />
       </div>
     );
   }
