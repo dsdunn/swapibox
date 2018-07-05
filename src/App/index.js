@@ -50,6 +50,7 @@ class App extends Component {
         <Body 
           vehicles={this.state.vehicles} 
           people={this.state.people} 
+          planets={this.state.planets}
         />
       </div>
     );

@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Card = ({person, vehicle}) => {
+const Card = ({person, vehicle, planet}) => {
+
+const displayResidents = (residents) => {
+  return residents.map(resident => <li key={resident}>{resident}</li> )
+}
+
   const Card = person ? 
         <div className="card"> 
           <button> Favorite </button>
@@ -9,7 +14,7 @@ const Card = ({person, vehicle}) => {
           <p>Homeworld: {person.planetName}</p>
           <p>population: {person.population}</p>
         </div>
-        :
+        : vehicle ?
         <div>
           <button> Favorite </button>
           <h2>name: {vehicle.name}</h2>
@@ -17,7 +22,14 @@ const Card = ({person, vehicle}) => {
           <p>class: {vehicle.vehicle_class}</p>
           <p>Passengers: {vehicle.passengers}</p>
         </div>   
-
+        : 
+        <div>
+          <button> Favorite </button>
+          <h2>name: {planet.name}</h2>
+          <p>population: {planet.population}</p>
+          <p>climate: {planet.climate}</p>
+          <ul>residents: {displayResidents(planet.residents)}</ul>
+        </div>
   return Card;
 }
 

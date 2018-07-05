@@ -65,7 +65,7 @@ export default class DataCleaner {
     const url = 'https://swapi.co/api/planets';
     const response = await fetch(url);
     const planetObj = await response.json();
-    const planets = await vehicleObj.results;
+    const planets = await planetObj.results;
     const planetList = planets.map( async (planet) => {
       const {name, terrain, population, climate} = await planet;
       const residents = await this.getResidents(planet);
@@ -77,12 +77,13 @@ export default class DataCleaner {
         residents
       })
     })
+    return Promise.all(planetList)
   }
 
   getResidents = async (planet) => {
-    residentNames = planet.residents.map(residentLink => {
+    const residentNames = planet.residents.map(async residentLink => {
       const response = await fetch(residentLink);
-      const residentsObj = await response.json();
+      const residentObj = await response.json();
       const residentName = await residentObj.name;
       return residentName;
     })
