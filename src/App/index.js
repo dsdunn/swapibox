@@ -5,39 +5,58 @@ import Header from '../Header';
 import Body from '../Body';
 import Sidebar from '../Sidebar';
 
+const dataCleaner = new DataCleaner();
+
 class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      
     }
-    this.dataCleaner = new DataCleaner()
   }
 
   async componentDidMount() {
      this.setState({
-      crawl: await this.dataCleaner.grabScroll()
+      filmInfo: await dataCleaner.grabScroll()
      })
   }
 
   getPeople = async () => {
+    if(!this.state.people) {
+      this.setState({
+        people: await dataCleaner.getPeople()
+      })
+    }
     this.setState({
-      people: await this.dataCleaner.getPeople()
+      category: 'people'
     })
   }
 
   getVehicles = async () => {
+    if(!this.state.vehicles) {
+      this.setState({
+        vehicles: await dataCleaner.getVehicles()
+      })
+    }
     this.setState({
-      vehicles: await this.dataCleaner.getVehicles()
+      category: 'vehicles'
     })
   }
 
   getPlanets = async () => {
+    if(!this.state.planets) {
+      this.setState({
+        planets: await dataCleaner.getPlanets()
+      })
+    }
     this.setState({
-      planets: await this.dataCleaner.getPlanets()
+      category: 'planets'
     })
   }
-  
+
+  toggleFavorites = (event) => {
+    console.log(event.target.name)
+  }
+
   render() {
     return (
       <div className="App">
@@ -46,11 +65,10 @@ class App extends Component {
           getVehicles={this.getVehicles} 
           getPlanets={this.getPlanets}
         />
-        <Sidebar crawl={this.state.crawl}/>
+        <Sidebar filmInfo={this.state.filmInfo}/>
         <Body 
-          vehicles={this.state.vehicles} 
-          people={this.state.people} 
-          planets={this.state.planets}
+          state={this.state}
+          toggleFavorites={this.toggleFavorites}
         />
       </div>
     );
