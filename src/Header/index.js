@@ -7,7 +7,7 @@ const Header = (props) => {
       <button onClick={props.getPeople} className="people">People</button>
       <button onClick={props.getVehicles} className="vehicles">Vehicles</button>
       <button onClick={props.getPlanets} className="planets">Planets</button>
-      <button className="favorites">favorites</button>
+      <button onClick={props.showFavorites} className="favorites">favorites</button>
     </div>
     )
 }

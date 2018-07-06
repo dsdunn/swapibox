@@ -11,6 +11,7 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
+      favorites: []
     }
   }
 
@@ -53,8 +54,28 @@ class App extends Component {
     })
   }
 
-  toggleFavorites = (event) => {
-    console.log(event.target.name)
+  toggleFavorites = (individual) => {
+    let favorites = this.state.favorites;
+    let duplicate = false;
+
+    favorites.forEach((fav, i) => {
+      if(fav.name === individual.name) {
+        favorites.splice(i, 1);
+        duplicate = true;
+      } 
+    })
+    if(!duplicate) {
+      favorites.push(individual);
+    }
+    this.setState({
+      favorites
+    })
+  }
+
+  showFavorites = () => {
+    this.setState({
+      category: 'favorites'
+    })
   }
 
   render() {
@@ -64,6 +85,7 @@ class App extends Component {
           getPeople={this.getPeople} 
           getVehicles={this.getVehicles} 
           getPlanets={this.getPlanets}
+          showFavorites={this.showFavorites}
         />
         <Sidebar filmInfo={this.state.filmInfo}/>
         <Body 

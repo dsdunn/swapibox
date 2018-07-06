@@ -1,30 +1,34 @@
 import React from 'react';
-import Card from '../Card'
+import Card from '../Card';
+import './styles.css'
 
 const Body = ({state, toggleFavorites}) => {
-  const makePeopleCards = (people) => {
-    return people.map(person => {
-      return <Card person={person} key={person.name} toggleFavorites={toggleFavorites} />
+
+  const makeCards = (group) => {
+    return group.map(individual => {
+      return <Card 
+          individual={individual} 
+          key={individual.name} 
+          toggleFavorites={toggleFavorites} 
+          isFavorite={isFavorite(individual)}
+        />
     })
   }
 
-  const makeVehicleCards = (vehicles) => {
-    return vehicles.map(vehicle => {
-      return <Card vehicle={vehicle} key={vehicle.name} toggleFavorites={toggleFavorites} />
-    })
-  }
+  const group = state.category === 'people' ? state.people :
+    state.category === 'vehicles' ? state.vehicles :
+    state.category === 'planets' ? state.planets : 
+    state.category === 'favorites' ? state.favorites : []
 
-  const makePlanetCards = (planets) => {
-    return planets.map(planet => {
-      return <Card planet={planet} key={planet.name} toggleFavorites={toggleFavorites} />
-    })
+  const isFavorite = (card) => {
+    return state.favorites.filter(fav => card.name === fav.name).length > 0
   }
 
   return (
       <div className="body">
-        {state.category === 'people' ? makePeopleCards(state.people) :
-          state.category === 'vehicles' ? makeVehicleCards(state.vehicles) : 
-          state.category === 'planets' ? makePlanetCards(state.planets) : ''
+        {state.category === 'favorites' && !group.length ?
+          <h2>no favorites</h2> :
+          makeCards(group)
         }
       </div>
     )

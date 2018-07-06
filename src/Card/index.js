@@ -1,34 +1,39 @@
 import React from 'react';
+import './styles.css';
 
-const Card = ({person, vehicle, planet, toggleFavorites}) => {
+const Card = ({individual, toggleFavorites, isFavorite}) => {
 
-const displayResidents = (residents) => {
-  return residents.map(resident => <li key={resident}>{resident}</li> )
-}
+  const displayResidents = (residents) => {
+    return residents.map(resident => <li key={resident}>{resident}</li> )
+  }
 
-  const Card = person ? 
-        <div className="card"> 
-          <button onClick={toggleFavorites} name={person.name}> Favorite </button>
-          <h2>name: {person.name}</h2>
-          <p>species: {person.species}</p>
-          <p>Homeworld: {person.planetName}</p>
-          <p>population: {person.population}</p>
+  const handleClick = () => {
+    toggleFavorites(individual)
+  }
+
+  const Card = individual.species ? 
+        <div className={`card ${isFavorite ? 'favorite' : ''}`}> 
+          <button onClick={handleClick} name={individual.name}> Favorite </button>
+          <h2>name: {individual.name}</h2>
+          <p>species: {individual.species}</p>
+          <p>Homeworld: {individual.planetName}</p>
+          <p>population: {individual.population}</p>
         </div>
-        : vehicle ?
-        <div>
-          <button onClick={toggleFavorites}> Favorite </button>
-          <h2>name: {vehicle.name}</h2>
-          <p>model: {vehicle.model}</p>
-          <p>class: {vehicle.vehicle_class}</p>
-          <p>Passengers: {vehicle.passengers}</p>
+        : individual.vehicle_class ?
+        <div className={`card ${isFavorite ? 'favorite' : ''}`}>
+          <button onClick={handleClick} name={individual.name}> Favorite </button>
+          <h2>name: {individual.name}</h2>
+          <p>model: {individual.model}</p>
+          <p>class: {individual.vehicle_class}</p>
+          <p>Passengers: {individual.passengers}</p>
         </div>   
         : 
-        <div>
-          <button onClick={toggleFavorites}> Favorite </button>
-          <h2>name: {planet.name}</h2>
-          <p>population: {planet.population}</p>
-          <p>climate: {planet.climate}</p>
-          <ul>residents: {displayResidents(planet.residents)}</ul>
+        <div className={`card ${isFavorite ? 'favorite' : ''}`}>
+          <button onClick={handleClick} name={individual.name}> Favorite </button>
+          <h2>name: {individual.name}</h2>
+          <p>population: {individual.population}</p>
+          <p>climate: {individual.climate}</p>
+          <ul>residents: {displayResidents(individual.residents)}</ul>
         </div>
   return Card;
 }
