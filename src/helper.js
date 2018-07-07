@@ -24,7 +24,7 @@ const grabPeople = async () => {
       const peopleObj = await response.json();
       const people = peopleObj.results;
       const peopleList = people.map( async (person) => {
-        const name = await person.name;
+        const name = person.name;
         const { planetName, population } = await getHomeWorld(person);
         const species = await getSpecies(person);
         return ({
