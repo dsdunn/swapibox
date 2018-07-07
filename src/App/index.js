@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './styles.css';
-import {
-  getResidents, 
-  getPlanets, 
-  getPeople, 
-  getVehicles, 
-  getSpecies, 
-  getHomeWorld, 
+import { 
+  grabPlanets, 
+  grabPeople, 
+  grabVehicles,  
   grabScroll} from '../helper.js';
 import Header from '../Header';
 import Body from '../Body';
@@ -34,7 +31,7 @@ class App extends Component {
   getPeople = async () => {
     if(!this.state.people) {
       this.setState({
-        people: await getPeople()
+        people: await grabPeople()
       })
     }
     this.setState({
@@ -45,7 +42,7 @@ class App extends Component {
   getVehicles = async () => {
     if(!this.state.vehicles) {
       this.setState({
-        vehicles: await getVehicles()
+        vehicles: await grabVehicles()
       })
     }
     this.setState({
@@ -56,7 +53,7 @@ class App extends Component {
   getPlanets = async () => {
     if(!this.state.planets) {
       this.setState({
-        planets: await getPlanets()
+        planets: await grabPlanets()
       })
     }
     this.setState({

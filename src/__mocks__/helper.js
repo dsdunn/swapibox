@@ -1,22 +1,23 @@
 const mockScroll = "this is the crawl for a movie";
-const mockPeople = [{}, {}];
-const mockVehicles = [{}, {}];
-const mockPlanets = [{}, {}];
+const mockPeople = [{name: "Joe"}];
+const mockVehicles = [{class: "junk"}];
+const mockPlanets = [{climate: "wasteland"}];
 
-const grabScroll = jest.fn().mockImplementation(()=> {
+const grabScroll = jest.fn().mockImplementation(() => (
   Promise.resolve(mockScroll)
-})
+))
 
-const getPeople = jest.fn().mockImplementation(()=> {
+const grabPeople = jest.fn().mockImplementation(()=> (
   Promise.resolve(mockPeople)
-})
+))
 
-const getPlanets = jest.fn().mockImplementation(() => {
+const grabPlanets = jest.fn().mockImplementation(() => (
   Promise.resolve(mockPlanets)
-})
-const getVehicles = jest.fn().mockImplementation(() => {
-  Promise.resolve(mockVehicles)
-})
+))
 
-export {grabScroll, getPlanets, getPeople, getVehicles}
-  // , getSpecies, getHomeWorld, getResidents 
+const grabVehicles = jest.fn().mockImplementation(() => (
+  Promise.resolve(mockVehicles)
+))
+
+export {grabScroll, grabPlanets, grabPeople, grabVehicles}
+   

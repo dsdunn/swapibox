@@ -17,7 +17,7 @@ const grabScroll = async () => {
     }
   }
 
-const getPeople = async () => {
+const grabPeople = async () => {
     try {  
       const url = 'https://swapi.co/api/people';
       const response = await fetch(url);
@@ -55,7 +55,7 @@ const getSpecies = async (person) => {
     return speciesName;
   }
 
-const getVehicles = async () => {
+const grabVehicles = async () => {
     try {
       const url = 'https://swapi.co/api/vehicles/';
       const response = await fetch(url);
@@ -76,7 +76,7 @@ const getVehicles = async () => {
     }
   }
 
-const getPlanets = async () => {
+const grabPlanets = async () => {
     try {
       const url = 'https://swapi.co/api/planets';
       const response = await fetch(url);
@@ -111,5 +111,5 @@ const getResidents = async (planet) => {
 
 
 
-export {getResidents, getPlanets, getPeople, getVehicles, getSpecies, getHomeWorld, grabScroll}
+export {getResidents, grabPlanets, grabPeople, grabVehicles, getSpecies, getHomeWorld, grabScroll}
 

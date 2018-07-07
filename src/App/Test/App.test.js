@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import {
   grabScroll, 
-  getPlanets, 
-  getPeople, 
-  getVehicles} from '../../helper.js'
+  grabPlanets, 
+  grabPeople, 
+  grabVehicles} from '../../helper.js'
 import App from '../'
 
 jest.mock('../../helper.js')
+
+const mockScroll = "this is the crawl for a movie";
+const mockPeople = [{name: "Joe"}];
+const mockVehicles = [{class: "junk"}];
+const mockPlanets = [{climate: "wasteland"}];
 
 describe('App', () => {
   let wrapper;
@@ -17,27 +22,36 @@ describe('App', () => {
     wrapper = shallow(<App />)
   })
 
-  it('calls dataCleaner.grabScroll and sets state with scroll data', () => {
-    wrapper.instance().getScroll();
+  it('calls grabScroll and sets state with scroll data', async () => {
+    await wrapper.instance().getScroll()
+    
+    expect(wrapper.state('filmInfo')).toEqual(mockScroll)
 
     expect(grabScroll).toHaveBeenCalled();
   })
 
-  it('calls dataCleaner.getPeople from its getPeople method, and sets category to "people"', () => {
-    wrapper.instance().getPeople();
+  it('calls grabPeople from its getPeople method, sets people in state, and sets category to "people"', async () => {
+    await wrapper.instance().getPeople();
 
-    expect(getPeople).toHaveBeenCalled();
+    expect(grabPeople).toHaveBeenCalled();
+    expect(wrapper.state('people')).toEqual(mockPeople);
+    expect(wrapper.state('category')).toEqual('people');
   })
 
-  it('calls dataCleaner.getVehicles from its get Vehicles method, and sets category to "vehicles"', () => {
-    wrapper.instance().getVehicles();
+  it('calls grabVehicles from its get Vehicles method, and sets category to "vehicles"', async () => {
+    await wrapper.instance().getVehicles();
 
-    expect(getVehicles).toHaveBeenCalled();
+    expect(grabVehicles).toHaveBeenCalled();
+    expect(wrapper.state('vehicles')).toEqual(mockVehicles);
+    expect(wrapper.state('category')).toEqual('vehicles');
   })
-  it('calls dataCleaner.getPlanets from its getPlanets method, and sets category to "planets"', () => {
-    wrapper.instance().getPlanets();
 
-    expect(getPlanets).toHaveBeenCalled();
+  it('calls grabPlanets from its getPlanets method, and sets category to "planets"', async () => {
+    await wrapper.instance().getPlanets();
+
+    expect(grabPlanets).toHaveBeenCalled();
+    expect(wrapper.state('planets')).toEqual(mockPlanets);
+    expect(wrapper.state('category')).toEqual('planets');
   })
 
   it('pushes an object into the favorites array with toggleFavorites if it doesn\'t already exist',() => {
@@ -46,17 +60,29 @@ describe('App', () => {
     })
 
     wrapper.instance().toggleFavorites({name: "Gonzo"});
-
-    expect(wrapper.state('favorites'))
-
+    expect(wrapper.state('favorites').length).toEqual(2)
 
   })
 
-  it.skip('removes object from favorites array with toggleFavorites if it already exists', () => {
+  it('removes object from favorites array with toggleFavorites if it already exists', () => {
+    wrapper.setState({
+      favorites: [{name: 'Bingo'}]
+    })
 
+    wrapper.instance().toggleFavorites({name: "Bingo"});
+    expect(wrapper.state('favorites').length).toEqual(0)
   })
 
-  it.skip('sets category to "favorites" when showFavorites is called', () => {
+  it('sets category to "favorites" when showFavorites is called', () => {
+
+    wrapper.setState({
+      category: 'people'
+    })
+
+    expect(wrapper.state('category')).toEqual('people');
+    wrapper.instance().showFavorites();
+
+    expect(wrapper.state('category')).toEqual('favorites')
 
   })
 
