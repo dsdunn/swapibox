@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './styles.css';
-import DataCleaner from '../helper.js'
+import { 
+  grabPlanets, 
+  grabPeople, 
+  grabVehicles,  
+  grabScroll} from '../helper.js';
 import Header from '../Header';
 import Body from '../Body';
 import Sidebar from '../Sidebar';
-
-const dataCleaner = new DataCleaner();
 
 class App extends Component {
   constructor(props) {
@@ -15,16 +17,21 @@ class App extends Component {
     }
   }
 
-  async componentDidMount() {
-     this.setState({
-      filmInfo: await dataCleaner.grabScroll()
+  componentDidMount() {
+     this.getScroll();
+  }
+
+  async getScroll() {
+    const filmInfo = await grabScroll()
+    this.setState({
+      filmInfo 
      })
   }
 
   getPeople = async () => {
     if(!this.state.people) {
       this.setState({
-        people: await dataCleaner.getPeople()
+        people: await grabPeople()
       })
     }
     this.setState({
@@ -35,7 +42,7 @@ class App extends Component {
   getVehicles = async () => {
     if(!this.state.vehicles) {
       this.setState({
-        vehicles: await dataCleaner.getVehicles()
+        vehicles: await grabVehicles()
       })
     }
     this.setState({
@@ -46,7 +53,7 @@ class App extends Component {
   getPlanets = async () => {
     if(!this.state.planets) {
       this.setState({
-        planets: await dataCleaner.getPlanets()
+        planets: await grabPlanets()
       })
     }
     this.setState({
