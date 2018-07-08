@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Header = (props) => { 
   return (
@@ -10,6 +11,13 @@ const Header = (props) => {
       <button onClick={props.showFavorites} className="favorites">favorites</button>
     </div>
     )
+}
+
+Header.propTypes = {
+  getPeople: PropTypes.func,
+  getVehicles: PropTypes.func,
+  getPlanets: PropTypes.func,
+  showFavorites: PropTypes.func
 }
 
 export default Header;

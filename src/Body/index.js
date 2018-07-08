@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../Card';
+import PropTypes from 'prop-types';
 import './styles.css'
 
 const Body = ({state, toggleFavorites}) => {
@@ -32,6 +33,11 @@ const Body = ({state, toggleFavorites}) => {
         }
       </div>
     )
+}
+
+Body.propTypes = {
+  state: PropTypes.object.isRequired,
+  toggleFavorites: PropTypes.func.isRequired
 }
 
 export default Body;

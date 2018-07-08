@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 const Card = ({individual, toggleFavorites, isFavorite}) => {
@@ -12,7 +13,7 @@ const Card = ({individual, toggleFavorites, isFavorite}) => {
   }
 
   const Card = individual.species ? 
-        <div className={`card ${isFavorite ? 'favorite' : ''}`}> 
+        <div className={`card person ${isFavorite ? 'favorite' : ''}`}> 
           <button onClick={handleClick} name={individual.name}> Favorite </button>
           <h2>name: {individual.name}</h2>
           <p>species: {individual.species}</p>
@@ -20,7 +21,7 @@ const Card = ({individual, toggleFavorites, isFavorite}) => {
           <p>population: {individual.population}</p>
         </div>
         : individual.vehicle_class ?
-        <div className={`card ${isFavorite ? 'favorite' : ''}`}>
+        <div className={`card vehicle ${isFavorite ? 'favorite' : ''}`}>
           <button onClick={handleClick} name={individual.name}> Favorite </button>
           <h2>name: {individual.name}</h2>
           <p>model: {individual.model}</p>
@@ -28,7 +29,7 @@ const Card = ({individual, toggleFavorites, isFavorite}) => {
           <p>Passengers: {individual.passengers}</p>
         </div>   
         : 
-        <div className={`card ${isFavorite ? 'favorite' : ''}`}>
+        <div className={`card planet ${isFavorite ? 'favorite' : ''}`}>
           <button onClick={handleClick} name={individual.name}> Favorite </button>
           <h2>name: {individual.name}</h2>
           <p>population: {individual.population}</p>
@@ -36,6 +37,12 @@ const Card = ({individual, toggleFavorites, isFavorite}) => {
           <ul>residents: {displayResidents(individual.residents)}</ul>
         </div>
   return Card;
+}
+
+Card.propTypes = {
+  individual: PropTypes.object.isRequired,
+  toggleFavorites: PropTypes.func.isRequired,
+  isFavorite: PropTypes.bool.isRequired
 }
 
 export default Card;

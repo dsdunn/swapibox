@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './styles.css';
-import { 
-  grabPlanets, 
-  grabPeople, 
-  grabVehicles,  
-  grabScroll} from '../helper.js';
+import * as helper from '../helper.js';
 import Header from '../Header';
 import Body from '../Body';
 import Sidebar from '../Sidebar';
@@ -13,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      favorites: []
+      favorites: [],
     }
   }
 
@@ -22,7 +18,7 @@ class App extends Component {
   }
 
   async getScroll() {
-    const filmInfo = await grabScroll()
+    const filmInfo = await helper.grabScroll()
     this.setState({
       filmInfo 
      })
@@ -30,8 +26,21 @@ class App extends Component {
 
   getPeople = async () => {
     if(!this.state.people) {
+      let people = await helper.grabPeople();
+      const peopleList = people.map( async (person) => {
+        const name = person.name;
+        const { planetName, population } = await helper.getHomeWorld(person);
+        const species = await helper.getSpecies(person);
+        return ({
+          name,
+          planetName,
+          population,
+          species
+        })
+      })
+      people = await Promise.all(peopleList);
       this.setState({
-        people: await grabPeople()
+        people
       })
     }
     this.setState({
@@ -42,7 +51,7 @@ class App extends Component {
   getVehicles = async () => {
     if(!this.state.vehicles) {
       this.setState({
-        vehicles: await grabVehicles()
+        vehicles: await helper.grabVehicles()
       })
     }
     this.setState({
@@ -52,8 +61,21 @@ class App extends Component {
 
   getPlanets = async () => {
     if(!this.state.planets) {
+      let planets = await helper.grabPlanets()
+      const planetList = planets.map( async (planet) => {
+        const {name, terrain, population, climate} = await planet;
+        const residents = await helper.getResidents(planet);
+        return ({
+          name,
+          terrain,
+          population,
+          climate,
+          residents
+        })
+      })
+      planets = await Promise.all(planetList)
       this.setState({
-        planets: await grabPlanets()
+        planets
       })
     }
     this.setState({

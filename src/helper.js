@@ -22,19 +22,7 @@ const grabPeople = async () => {
       const url = 'https://swapi.co/api/people';
       const response = await fetch(url);
       const peopleObj = await response.json();
-      const people = peopleObj.results;
-      const peopleList = people.map( async (person) => {
-        const name = person.name;
-        const { planetName, population } = await getHomeWorld(person);
-        const species = await getSpecies(person);
-        return ({
-          name,
-          planetName,
-          population,
-          species
-        })
-      })
-      return Promise.all(peopleList);
+      return peopleObj.results;
     } catch(error) {
       return error.message
     }
@@ -81,19 +69,7 @@ const grabPlanets = async () => {
       const url = 'https://swapi.co/api/planets';
       const response = await fetch(url);
       const planetObj = await response.json();
-      const planets = planetObj.results;
-      const planetList = planets.map( async (planet) => {
-        const {name, terrain, population, climate} = await planet;
-        const residents = await getResidents(planet);
-        return ({
-          name,
-          terrain,
-          population,
-          climate,
-          residents
-        })
-      })
-      return Promise.all(planetList)
+      return planetObj.results;
     } catch(error) {
       return error.message;
     }

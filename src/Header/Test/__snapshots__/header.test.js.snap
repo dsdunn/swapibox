@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header
+    props={
+        Object {
+            "getPeople": [Function],
+            "getPlanets": [Function],
+            "getVehicles": [Function],
+            "showFavorites": [Function],
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1
+          className="title"
+>
+          SwapiBox
+</h1>,
+        <button
+          className="people"
+          onClick={undefined}
+>
+          People
+</button>,
+        <button
+          className="vehicles"
+          onClick={undefined}
+>
+          Vehicles
+</button>,
+        <button
+          className="planets"
+          onClick={undefined}
+>
+          Planets
+</button>,
+        <button
+          className="favorites"
+          onClick={undefined}
+>
+          favorites
+</button>,
+      ],
+      "className": "header",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "SwapiBox",
+          "className": "title",
+        },
+        "ref": null,
+        "rendered": "SwapiBox",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "People",
+          "className": "people",
+          "onClick": undefined,
+        },
+        "ref": null,
+        "rendered": "People",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Vehicles",
+          "className": "vehicles",
+          "onClick": undefined,
+        },
+        "ref": null,
+        "rendered": "Vehicles",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Planets",
+          "className": "planets",
+          "onClick": undefined,
+        },
+        "ref": null,
+        "rendered": "Planets",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "favorites",
+          "className": "favorites",
+          "onClick": undefined,
+        },
+        "ref": null,
+        "rendered": "favorites",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="title"
+>
+            SwapiBox
+</h1>,
+          <button
+            className="people"
+            onClick={undefined}
+>
+            People
+</button>,
+          <button
+            className="vehicles"
+            onClick={undefined}
+>
+            Vehicles
+</button>,
+          <button
+            className="planets"
+            onClick={undefined}
+>
+            Planets
+</button>,
+          <button
+            className="favorites"
+            onClick={undefined}
+>
+            favorites
+</button>,
+        ],
+        "className": "header",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "SwapiBox",
+            "className": "title",
+          },
+          "ref": null,
+          "rendered": "SwapiBox",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "People",
+            "className": "people",
+            "onClick": undefined,
+          },
+          "ref": null,
+          "rendered": "People",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Vehicles",
+            "className": "vehicles",
+            "onClick": undefined,
+          },
+          "ref": null,
+          "rendered": "Vehicles",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Planets",
+            "className": "planets",
+            "onClick": undefined,
+          },
+          "ref": null,
+          "rendered": "Planets",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "favorites",
+            "className": "favorites",
+            "onClick": undefined,
+          },
+          "ref": null,
+          "rendered": "favorites",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
