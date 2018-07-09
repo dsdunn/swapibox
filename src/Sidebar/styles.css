@@ -1,5 +1,4 @@
 .sideBar {
-  /*display: inline-block;*/
   display: flex;
   position: fixed;
   height: 100%;
@@ -17,11 +16,11 @@
   justify-content: center;
   position: absolute;
   text-align: justify;
-  top: -400px;
-  animation: container 60s linear; }
+  line-height: 120%;
+  animation: container 30s linear; }
 
 @keyframes container {
   0% {
-    top: 0px; }
+    top: 95%; }
   100% {
-    top: -1000px; } }
+    top: 0; } }
