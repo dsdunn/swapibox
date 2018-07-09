@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css'
+import './styles.css';
 
 const Header = (props) => { 
   return (
@@ -13,14 +13,14 @@ const Header = (props) => {
         <button onClick={props.showFavorites} className="favorites">favorites</button>
       </div>
     </div>
-    )
-}
+    );
+};
 
 Header.propTypes = {
   getPeople: PropTypes.func,
   getVehicles: PropTypes.func,
   getPlanets: PropTypes.func,
   showFavorites: PropTypes.func
-}
+};
 
 export default Header;

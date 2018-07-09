@@ -32,9 +32,7 @@ ShallowWrapper {
 >
            Favorite 
 </button>,
-        <h2>
-          name: 
-</h2>,
+        <h3 />,
         <p>
           species: 
           human
@@ -68,17 +66,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            "name: ",
-            undefined,
-          ],
+          "children": undefined,
         },
         "ref": null,
-        "rendered": Array [
-          "name: ",
-          undefined,
-        ],
-        "type": "h2",
+        "rendered": null,
+        "type": "h3",
       },
       Object {
         "instance": null,
@@ -147,9 +139,7 @@ ShallowWrapper {
 >
              Favorite 
 </button>,
-          <h2>
-            name: 
-</h2>,
+          <h3 />,
           <p>
             species: 
             human
@@ -183,17 +173,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              "name: ",
-              undefined,
-            ],
+            "children": undefined,
           },
           "ref": null,
-          "rendered": Array [
-            "name: ",
-            undefined,
-          ],
-          "type": "h2",
+          "rendered": null,
+          "type": "h3",
         },
         Object {
           "instance": null,

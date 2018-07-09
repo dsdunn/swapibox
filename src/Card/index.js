@@ -5,12 +5,12 @@ import './styles.css';
 const Card = ({individual, toggleFavorites, isFavorite}) => {
 
   const displayResidents = (residents) => {
-    return residents.map(resident => <li key={resident}>{resident}</li> )
-  }
+    return residents.map(resident => <li key={resident}>{resident}</li> );
+  };
 
   const handleClick = () => {
-    toggleFavorites(individual)
-  }
+    toggleFavorites(individual);
+  };
 
   const Card = individual.species ? 
         <div className={`card person ${isFavorite ? 'favorite' : ''}`}> 
@@ -35,14 +35,14 @@ const Card = ({individual, toggleFavorites, isFavorite}) => {
           <p>population: {individual.population}</p>
           <p>climate: {individual.climate}</p>
           <ul>residents: {displayResidents(individual.residents)}</ul>
-        </div>
+        </div>;
   return Card;
-}
+};
 
 Card.propTypes = {
   individual: PropTypes.object.isRequired,
   toggleFavorites: PropTypes.func.isRequired,
   isFavorite: PropTypes.bool.isRequired
-}
+};
 
 export default Card;

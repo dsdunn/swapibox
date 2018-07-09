@@ -3,7 +3,8 @@
   border: 1px solid black;
   padding: 2%;
   width: 25vw;
-  background-color: #d8d8d2; }
+  background-color: #d8d8d2;
+  font-family: Sans-Serif; }
 
 .favorite {
   border: 2px solid red; }

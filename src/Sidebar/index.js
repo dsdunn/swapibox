@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css'
+import './styles.css';
 
 const SideBar = ({filmInfo}) => {
   return filmInfo ? 
@@ -11,11 +11,11 @@ const SideBar = ({filmInfo}) => {
           <p>{filmInfo.date}</p>
         </div>
       </div>
-      : <div className='sideBar'></div>
-}
+      : <div className='sideBar'></div> ;
+};
 
 SideBar.propTypes = {
   filmInfo: PropTypes.object
-}
+};
 
 export default SideBar;
