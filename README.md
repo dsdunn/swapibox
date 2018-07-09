@@ -1,7 +1,7 @@
 
 # Swapi-Box
 
-![swapi-box](/swapibox/swapi.png)
+![swapi-box](/swapi.png)
 
 ## Description
 
