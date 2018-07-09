@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.css'
 
 const SideBar = ({filmInfo}) => {
   return filmInfo ? 
-      <div>
-        <p>{filmInfo.crawl}</p>
-        <h5>{filmInfo.filmTitle}</h5>
-        <h5>{filmInfo.date}</h5>
+      <div className='sideBar'>
+        <div className='container'>
+          <p>{filmInfo.crawl}</p>
+          <p>{filmInfo.filmTitle}</p>
+          <p>{filmInfo.date}</p>
+        </div>
       </div>
-      : <div></div>
+      : <div className='sideBar'></div>
 }
 
 SideBar.propTypes = {

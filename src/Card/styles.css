@@ -1,2 +1,16 @@
+.card {
+  margin: 3%;
+  border: 1px solid black;
+  padding: 2%;
+  width: 25vw;
+  background-color: #d8d8d2; }
+
 .favorite {
-  border: solid green; }
+  border: 2px solid red; }
+
+.card p {
+  font-size: 1.1em;
+  margin: auto; }
+
+.nofav {
+  color: gray; }

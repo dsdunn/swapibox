@@ -17,7 +17,7 @@ class App extends Component {
      this.getScroll();
   }
 
-  async getScroll() {
+  getScroll = async () => {
     const filmInfo = await helper.grabScroll()
     this.setState({
       filmInfo 
@@ -110,17 +110,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header 
-          getPeople={this.getPeople} 
-          getVehicles={this.getVehicles} 
-          getPlanets={this.getPlanets}
-          showFavorites={this.showFavorites}
-        />
         <Sidebar filmInfo={this.state.filmInfo}/>
-        <Body 
-          state={this.state}
-          toggleFavorites={this.toggleFavorites}
-        />
+        <div className='main'>
+          <Header 
+            getPeople={this.getPeople} 
+            getVehicles={this.getVehicles} 
+            getPlanets={this.getPlanets}
+            showFavorites={this.showFavorites}
+          />
+          <Body 
+            state={this.state}
+            toggleFavorites={this.toggleFavorites}
+          />
+        </div>
       </div>
     );
   }

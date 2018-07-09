@@ -15,7 +15,7 @@ const Card = ({individual, toggleFavorites, isFavorite}) => {
   const Card = individual.species ? 
         <div className={`card person ${isFavorite ? 'favorite' : ''}`}> 
           <button onClick={handleClick} name={individual.name}> Favorite </button>
-          <h2>name: {individual.name}</h2>
+          <h3>{individual.name}</h3>
           <p>species: {individual.species}</p>
           <p>Homeworld: {individual.planetName}</p>
           <p>population: {individual.population}</p>
@@ -23,7 +23,7 @@ const Card = ({individual, toggleFavorites, isFavorite}) => {
         : individual.vehicle_class ?
         <div className={`card vehicle ${isFavorite ? 'favorite' : ''}`}>
           <button onClick={handleClick} name={individual.name}> Favorite </button>
-          <h2>name: {individual.name}</h2>
+          <h3>{individual.name}</h3>
           <p>model: {individual.model}</p>
           <p>class: {individual.vehicle_class}</p>
           <p>Passengers: {individual.passengers}</p>
@@ -31,7 +31,7 @@ const Card = ({individual, toggleFavorites, isFavorite}) => {
         : 
         <div className={`card planet ${isFavorite ? 'favorite' : ''}`}>
           <button onClick={handleClick} name={individual.name}> Favorite </button>
-          <h2>name: {individual.name}</h2>
+          <h3>{individual.name}</h3>
           <p>population: {individual.population}</p>
           <p>climate: {individual.climate}</p>
           <ul>residents: {displayResidents(individual.residents)}</ul>

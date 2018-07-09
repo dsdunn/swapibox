@@ -1,0 +1,18 @@
+.header {
+  background-color: #1c1c12;
+  margin-left: 250px;
+  text-align: center; }
+
+.controls {
+  display: flex;
+  justify-content: space-around; }
+
+h1 {
+  color: yellow; }
+
+.controls button {
+  height: 40px;
+  color: yellow;
+  background-color: darkgray;
+  width: auto;
+  font-size: 1.7em; }

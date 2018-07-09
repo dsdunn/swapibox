@@ -28,6 +28,7 @@ ShallowWrapper {
         <h5 />,
         <h5 />,
       ],
+      "className": "sideBar",
     },
     "ref": null,
     "rendered": Array [
@@ -78,6 +79,7 @@ ShallowWrapper {
           <h5 />,
           <h5 />,
         ],
+        "className": "sideBar",
       },
       "ref": null,
       "rendered": Array [

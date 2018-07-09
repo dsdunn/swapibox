@@ -28,7 +28,7 @@ const Body = ({state, toggleFavorites}) => {
   return (
       <div className="body">
         {state.category === 'favorites' && !group.length ?
-          <h2>no favorites</h2> :
+          <h2 className="nofav">no favorites</h2> :
           makeCards(group)
         }
       </div>
