@@ -2,4 +2,13 @@
   box-sizing: border-box; }
 
 html {
-  background-color: #1c1c12; }
+  background: url("../black-and-white-dark-shooting-stars-157824.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh; }
+
+@font-face {
+  font-family: 'Star Jedi Hollow';
+  src: local("Star Jedi Hollow"); }

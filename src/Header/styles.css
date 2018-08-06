@@ -1,5 +1,4 @@
 .header {
-  background-color: #1c1c12;
   margin-left: 250px;
   text-align: center; }
 
@@ -8,11 +7,15 @@
   justify-content: space-around; }
 
 h1 {
-  color: yellow; }
+  color: #f6d347;
+  font-family: 'Star Jedi Hollow';
+  font-size: 3.4em; }
 
 .controls button {
   height: 40px;
-  color: yellow;
-  background-color: darkgray;
+  color: #a62c19;
+  background: none;
+  border: 2px solid #445d76;
+  border-radius: 20%;
   width: auto;
-  font-size: 1.7em; }
+  font-size: 1.4em; }

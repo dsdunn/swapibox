@@ -1,8 +1,10 @@
 .body {
   display: flex;
   margin-left:250px;
+  margin-top: 3%;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #1c1c12;
+  height: 80vh;
+  overflow: scroll;
 }
 
